@@ -1,0 +1,32 @@
+# 日志文件
+*.log
+
+# Rust 编译产物
+target/
+release/
+
+# 二进制文件（不纳入版本控制）
+*.exe
+*.pdb
+*.ilk
+*.obj
+*.lib
+*.exp
+
+# 临时文件
+.tmp/
+
+# 编辑器目录
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sw?
+
+# 本地开发配置
+*.local
+.claude/settings.local.json
+
+# 易语言工具链环境包（体积较大，不入库）
+resources/eagent-tools/eroot/e.zip

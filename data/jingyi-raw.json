@@ -1,0 +1,141 @@
+[
+  {
+    "module": "精易模块",
+    "categories": {
+      "网络操作": [
+        {
+          "name": "网页_访问",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "地址", "type": "文本型" },
+            { "name": "编码", "type": "整数型" }
+          ],
+          "description": "访问指定网址，返回网页内容文本",
+          "category": "网络操作"
+        },
+        {
+          "name": "网页_提交",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "地址", "type": "文本型" },
+            { "name": "数据", "type": "文本型" },
+            { "name": "编码", "type": "整数型" }
+          ],
+          "description": "向指定地址POST提交数据，返回响应内容",
+          "category": "网络操作"
+        }
+      ],
+      "文本处理": [
+        {
+          "name": "取文本中间",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "源文本", "type": "文本型" },
+            { "name": "左边文本", "type": "文本型" },
+            { "name": "右边文本", "type": "文本型" }
+          ],
+          "description": "取源文本中左边文本和右边文本之间的内容",
+          "category": "文本处理"
+        },
+        {
+          "name": "分割文本",
+          "className": "",
+          "returnType": "文本型数组",
+          "params": [
+            { "name": "源文本", "type": "文本型" },
+            { "name": "分割符", "type": "文本型" }
+          ],
+          "description": "将源文本按分割符分割成文本数组",
+          "category": "文本处理"
+        },
+        {
+          "name": "正则_取文本",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "源文本", "type": "文本型" },
+            { "name": "正则表达式", "type": "文本型" },
+            { "name": "第几个", "type": "整数型" }
+          ],
+          "description": "用正则表达式从源文本中提取匹配内容",
+          "category": "文本处理"
+        }
+      ],
+      "文件操作": [
+        {
+          "name": "读入文件",
+          "className": "",
+          "returnType": "字节集",
+          "params": [
+            { "name": "文件路径", "type": "文本型" }
+          ],
+          "description": "读取指定文件的全部内容，返回字节集",
+          "category": "文件操作"
+        },
+        {
+          "name": "写出文件",
+          "className": "",
+          "returnType": "逻辑型",
+          "params": [
+            { "name": "文件路径", "type": "文本型" },
+            { "name": "数据", "type": "字节集" }
+          ],
+          "description": "将字节集数据写入指定文件",
+          "category": "文件操作"
+        }
+      ],
+      "JSON操作": [
+        {
+          "name": "JSON_取值",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "JSON文本", "type": "文本型" },
+            { "name": "键名", "type": "文本型" }
+          ],
+          "description": "从JSON文本中取指定键的值",
+          "category": "JSON操作"
+        },
+        {
+          "name": "JSON_组合",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "键名1", "type": "文本型" },
+            { "name": "值1", "type": "文本型" }
+          ],
+          "description": "将键值对组合为JSON文本",
+          "category": "JSON操作"
+        }
+      ],
+      "加密解密": [
+        {
+          "name": "MD5",
+          "className": "",
+          "returnType": "文本型",
+          "params": [
+            { "name": "数据", "type": "字节集" },
+            { "name": "大写", "type": "逻辑型" }
+          ],
+          "description": "计算数据的MD5哈希值",
+          "category": "加密解密"
+        },
+        {
+          "name": "AES加密",
+          "className": "",
+          "returnType": "字节集",
+          "params": [
+            { "name": "数据", "type": "字节集" },
+            { "name": "密钥", "type": "字节集" },
+            { "name": "向量", "type": "字节集" }
+          ],
+          "description": "使用AES算法加密数据",
+          "category": "加密解密"
+        }
+      ]
+    }
+  }
+]
