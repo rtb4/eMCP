@@ -947,6 +947,7 @@ fn validate_ecode_source_declarations(
     Ok(())
 }
 
+/// 判断变量声明的初始化字段是否包含文本默认值。
 fn declaration_line_has_initializer(line: &str) -> bool {
     if !(line.starts_with(".全局变量 ")
         || line.starts_with(".程序集变量 ")
@@ -955,8 +956,13 @@ fn declaration_line_has_initializer(line: &str) -> bool {
         return false;
     }
 
-    let comma_count = line.matches(',').count();
-    comma_count >= 4 && (line.contains('"') || line.contains('“') || line.contains('”'))
+    let fields: Vec<&str> = line.split(',').map(str::trim).collect();
+    let initializer = match fields.get(4) {
+        Some(value) => *value,
+        None => return false,
+    };
+
+    initializer.contains('"') || initializer.contains('“') || initializer.contains('”')
 }
 
 async fn run_e2txt(
@@ -1354,6 +1360,12 @@ mod tests {
         ));
         assert!(!declaration_line_has_initializer(
             ".程序集变量 浏览器, 队长chrome类"
+        ));
+        assert!(!declaration_line_has_initializer(
+            ".程序集变量 NameList, 文本型, , \"0\", 文件名称列表"
+        ));
+        assert!(!declaration_line_has_initializer(
+            ".程序集变量 Lists, 超级列表框, , \"1\", 所有列表组"
         ));
     }
 
