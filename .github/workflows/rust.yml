@@ -1,0 +1,32 @@
+name: Build Windows MCP
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Test
+        run: cargo test declaration_line_has_initializer
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: eaicoding-mcp-windows
+          path: target/release/eaicoding-mcp.exe
+          if-no-files-found: error
